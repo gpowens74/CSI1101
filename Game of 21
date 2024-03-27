@@ -1,0 +1,87 @@
+import java.util.Scanner;
+
+public class twentyone
+
+{
+
+public static void main(String args[])
+
+{
+
+die d1 = new die();
+
+die d2 = new die();
+
+Scanner sc = new Scanner(System.in);
+
+while(true){
+
+int computerTotal = 0;
+
+int userTotal = 0;
+
+while(computerTotal <= 21 && userTotal <=21){
+
+int computerRoll = d1.getValue()+d1.getSides();
+
+// validating computer total
+
+if((computerRoll + computerTotal ) > 21){
+
+break;
+
+}
+
+computerTotal = computerRoll + computerTotal;
+
+// user input
+
+System.out.print("Do you want to roll(y/n) ? ");
+
+char c = sc.next().charAt(0);
+
+if(c == 'Y' || c == 'y'){
+
+int userRoll = d1.getValue()+d1.getSides();
+
+if((userRoll + userTotal ) > 21){
+
+break;
+
+}
+
+userTotal = userRoll + userTotal;
+
+}
+
+if(computerTotal == userTotal && userTotal <= 21){
+
+System.out.println("You won!!!");
+
+break;
+
+}
+
+}
+
+System.out.println("Computet total: "+computerTotal);
+
+System.out.println("User total: "+userTotal);
+
+// user input
+
+System.out.print("\nDo you want to play again(y/n) ? ");
+
+char c = sc.next().charAt(0);
+
+if(c != 'y' && c != 'Y')
+
+break;
+
+}
+
+}
+
+}
+
+/*
